@@ -1,4 +1,4 @@
-package classActivity2;
+package maya.classActivity2;
 
 import java.util.Scanner;
 
