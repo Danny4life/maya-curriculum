@@ -1,4 +1,4 @@
-package olga.classActivity2;
+package olga.classActivity2A;
 
 import java.util.Arrays;
 
