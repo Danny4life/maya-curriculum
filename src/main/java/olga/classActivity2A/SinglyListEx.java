@@ -80,18 +80,22 @@ public class SinglyListEx {
     public static void main(String[] args) {
         SinglyListEx linkedList = new SinglyListEx();
 
-        //class activity 2A
+        //class activity 2A  - comment this before running 2A1
+
         linkedList.head = new ListNode(20);
         ListNode second = new ListNode(10);
         ListNode third = new ListNode(15);
         ListNode fourth = new ListNode(5);
 
         // now we connect them together to form a chain which we make our singly linked list
+        // comment this before running 2A1
+
         linkedList.head.next = second; // 20 --->  10
         second.next = third; // 20 ---> 10 ---> 15
         third.next = fourth; // 20 ---> 10 ---> 15 ---> 5 ---> null
 
         // do this only for class activity 2A2 - for inserting node at beginning
+
         linkedList.insertNodeFirst(100);
         linkedList.insertNodeFirst(200);
         linkedList.insertNodeFirst(300);
@@ -99,15 +103,18 @@ public class SinglyListEx {
 
 
         // do this only for class activity 2A3 - for inserting node at the end
+
         linkedList.insertNodeLast(100);
         linkedList.insertNodeLast(200);
         linkedList.insertNodeLast(300);
 
         // do this after writing the display method
+
         linkedList.displayList();
 
         // do this only for class activity 2A1
-        System.out.println("Total length is - " + linkedList.displayLength());
+
+        System.out.println("Total length is : " + linkedList.displayLength());
 
     }
 }
