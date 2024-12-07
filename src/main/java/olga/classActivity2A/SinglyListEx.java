@@ -76,6 +76,30 @@ public class SinglyListEx {
         current.next = newNodeValue;
     }
 
+    public void insert(int position, int value){
+        // 1 -> 4 -> 5
+        //1 -> 6 -> 4 -> 5
+
+        ListNode node = new ListNode(value);
+
+        if(position == 1){
+            node.next = head;
+            head = node;
+        }else {
+            ListNode previous = head;
+            int count = 1;
+
+            while (count < position - 1){
+                previous = previous.next;
+                count++;
+            }
+
+            ListNode current = previous.next;
+            previous.next = node;
+            node.next = current;
+        }
+    }
+
 
 
     public static void main(String[] args) {
@@ -97,17 +121,19 @@ public class SinglyListEx {
 
         // do this only for class activity 2A2 - for inserting node at beginning
 
-        linkedList.insertNodeFirst(100);
-        linkedList.insertNodeFirst(200);
-        linkedList.insertNodeFirst(300);
+//        linkedList.insertNodeFirst(100);
+//        linkedList.insertNodeFirst(200);
+//        linkedList.insertNodeFirst(300);
 
 
 
         // do this only for class activity 2A3 - for inserting node at the end
 
-        linkedList.insertNodeLast(100);
-        linkedList.insertNodeLast(200);
-        linkedList.insertNodeLast(300);
+//        linkedList.insertNodeLast(100);
+//        linkedList.insertNodeLast(200);
+//        linkedList.insertNodeLast(300);
+
+        linkedList.insert(3, 45);
 
         // do this after writing the display method
 
@@ -115,7 +141,7 @@ public class SinglyListEx {
 
         // do this only for class activity 2A1
 
-        System.out.println("Total length is : " + linkedList.displayLength());
+     //   System.out.println("Total length is : " + linkedList.displayLength());
 
     }
 }
