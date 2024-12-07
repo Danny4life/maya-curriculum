@@ -6,6 +6,7 @@ public class SinglyListEx {
     // the head is responsible for holding the linked list and is always set to null at first
 
     // code to implement the linked list
+    // Remember a singly linked list always start from the head
     private ListNode head;
 
     // ListNode contains both the data and the next reference
