@@ -123,7 +123,7 @@ public class QueueEx {
 
         queue.print();
 
-        // Do this for 1B.. remove this before running first and second
+        // Do this for 1B.. remove this before running first and last
 //        System.out.println("After calling the deque operation");
 //        queue.deque();
 //        queue.deque();
@@ -132,8 +132,8 @@ public class QueueEx {
 //        queue.deque();
 
    //     queue.print();
-        System.out.println(queue.first());
-        System.out.println(queue.last());
+       // System.out.println(queue.first());
+     //   System.out.println(queue.last());
 
 
 

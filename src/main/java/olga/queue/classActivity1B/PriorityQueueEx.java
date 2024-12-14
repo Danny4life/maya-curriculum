@@ -2,7 +2,7 @@ package olga.queue.classActivity1B;
 
 public class PriorityQueueEx {
 
-   // Declares a static integer array heap with a size of 40.
+   // Declares a static integer array heap with a size of 40 -- assuming we will not exceed the fixed size of the array.
    // This array is used to store the elements of the heap.
     private static int[] heap = new int[40];
 
@@ -13,8 +13,20 @@ public class PriorityQueueEx {
     // Retrieving the parent node of the child node
 //    The parent method calculates the index of the parent node for a given child node i. In a binary heap:
 //    Parent of index i is at (i - 1) / 2.
+
+//        Input: i — the index of a child node in the array.
+//        Output: The index of the parent node.
     public static int parent(int i) {
         return (i - 1) / 2;
+
+       // The logic works as follows:
+
+//        i - 1: Since arrays are zero-indexed, subtracting 1 adjusts the index to account for this.
+//            2: Dividing by 2 gives the index of the parent node because, in a binary tree,
+//               each parent node can have two children. Integer division truncates the result
+//               to ensure the index is correct.
+
+
     }
 
     // Retrieving the left child of the parent node
