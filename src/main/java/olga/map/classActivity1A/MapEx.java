@@ -16,5 +16,6 @@ public class MapEx {
         System.out.println(employeeData);
 
         System.out.println(employeeData.get("John"));
+        System.out.println(employeeData.containsKey("Johns"));
     }
 }
