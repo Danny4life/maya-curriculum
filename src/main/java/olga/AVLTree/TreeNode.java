@@ -214,10 +214,17 @@ class AVLTree{
 
         tree.inOrder();
 
-        // for deleting
-       // tree.delete(40);
+        // check slide 13 for final AVL Tree
+        // we are getting this output as regards what is on the slide
+        // because of inorder transversal which follows (left -> root -> right) order and print in ascending order
+        // we first visit and get all the nodes on the left
+        // then the root node
+        // then all the nodes on the right
 
-       // tree.inOrder();
+        // for deleting
+        tree.delete(40);
+
+        tree.inOrder();
     }
 
 }
