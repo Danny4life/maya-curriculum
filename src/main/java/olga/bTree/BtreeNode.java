@@ -133,186 +133,196 @@ class Btree{
     }
 
     // Delete a key from the B-Tree
-//    public void delete(int key) {
-//        if (root == null) {
-//            System.out.println("Tree is empty");
-//            return;
-//        }
-//        deleteRec(root, key);
-//        if (root.numKeys == 0) {
-//            root = root.leaf ? null : root.children[0];
-//        }
-//    }
+    // Ignore deleting method in the class if there is not enough time and move to graph
+    public void delete(int key) {
+        if (root == null) {
+            System.out.println("Tree is empty");
+            return;
+        }
+        deleteRec(root, key);
+        if (root.numKeys == 0) {
+            root = root.leaf ? null : root.children[0];
+        }
+    }
 
-//    private void deleteRec(BtreeNode node, int key) {
-//        int idx = 0;
-//        while (idx < node.numKeys && node.keys[idx] < key) {
-//            idx++;
-//        }
-//        if (idx < node.numKeys && node.keys[idx] == key) {
-//            if (node.leaf) {
-//                removeFromLeaf(node, idx);
-//            } else {
-//                removeFromInternal(node, idx);
-//            }
-//        } else {
-//            if (node.leaf) {
-//                return;
-//            }
-//            boolean lastChild = (idx == node.numKeys);
-//            if (node.children[idx].numKeys < t) {
-//                fill(node, idx);
-//            }
-//            deleteRec((lastChild && idx > node.numKeys) ? node.children[idx - 1] : node.children[idx], key);
-//        }
-//    }
-
-
-
-//    private void fill(BtreeNode node, int idx) {
-//        if (idx != 0 && node.children[idx - 1].numKeys >= t) {
-//            borrowFromPrev(node, idx);
-//        } else if (idx != node.numKeys && node.children[idx + 1].numKeys >= t) {
-//            borrowFromNext(node, idx);
-//        } else {
-//            if (idx != node.numKeys) {
-//                merge(node, idx);
-//            } else {
-//                merge(node, idx - 1);
-//            }
-//        }
-//    }
-
-//    private void borrowFromPrev(BtreeNode node, int idx) {
-//        BtreeNode child = node.children[idx];
-//        BtreeNode sibling = node.children[idx - 1];
-//
-//        for (int i = child.numKeys - 1; i >= 0; i--) {
-//            child.keys[i + 1] = child.keys[i];
-//        }
-//
-//        if (!child.leaf) {
-//            for (int i = child.numKeys; i >= 0; i--) {
-//                child.children[i + 1] = child.children[i];
-//            }
-//        }
-//
-//        child.keys[0] = node.keys[idx - 1];
-//        if (!child.leaf) {
-//            child.children[0] = sibling.children[sibling.numKeys];
-//        }
-//
-//        node.keys[idx - 1] = sibling.keys[sibling.numKeys - 1];
-//        child.numKeys++;
-//        sibling.numKeys--;
-//    }
+    // ignore
+    private void deleteRec(BtreeNode node, int key) {
+        int idx = 0;
+        while (idx < node.numKeys && node.keys[idx] < key) {
+            idx++;
+        }
+        if (idx < node.numKeys && node.keys[idx] == key) {
+            if (node.leaf) {
+                removeFromLeaf(node, idx);
+            } else {
+                removeFromInternal(node, idx);
+            }
+        } else {
+            if (node.leaf) {
+                return;
+            }
+            boolean lastChild = (idx == node.numKeys);
+            if (node.children[idx].numKeys < t) {
+                fill(node, idx);
+            }
+            deleteRec((lastChild && idx > node.numKeys) ? node.children[idx - 1] : node.children[idx], key);
+        }
+    }
 
 
 
-//    private void borrowFromNext(BtreeNode node, int idx) {
-//        BtreeNode child = node.children[idx];
-//        BtreeNode sibling = node.children[idx + 1];
-//
-//        child.keys[child.numKeys] = node.keys[idx];
-//
-//        if (!child.leaf) {
-//            child.children[child.numKeys + 1] = sibling.children[0];
-//        }
-//
-//        node.keys[idx] = sibling.keys[0];
-//
-//        for (int i = 1; i < sibling.numKeys; i++) {
-//            sibling.keys[i - 1] = sibling.keys[i];
-//        }
-//
-//        if (!sibling.leaf) {
-//            for (int i = 1; i <= sibling.numKeys; i++) {
-//                sibling.children[i - 1] = sibling.children[i];
-//            }
-//        }
-//
-//        child.numKeys++;
-//        sibling.numKeys--;
-//    }
+    // ignore
+    private void fill(BtreeNode node, int idx) {
+        if (idx != 0 && node.children[idx - 1].numKeys >= t) {
+            borrowFromPrev(node, idx);
+        } else if (idx != node.numKeys && node.children[idx + 1].numKeys >= t) {
+            borrowFromNext(node, idx);
+        } else {
+            if (idx != node.numKeys) {
+                merge(node, idx);
+            } else {
+                merge(node, idx - 1);
+            }
+        }
+    }
+
+    // ignore
+    private void borrowFromPrev(BtreeNode node, int idx) {
+        BtreeNode child = node.children[idx];
+        BtreeNode sibling = node.children[idx - 1];
+
+        for (int i = child.numKeys - 1; i >= 0; i--) {
+            child.keys[i + 1] = child.keys[i];
+        }
+
+        if (!child.leaf) {
+            for (int i = child.numKeys; i >= 0; i--) {
+                child.children[i + 1] = child.children[i];
+            }
+        }
+
+        child.keys[0] = node.keys[idx - 1];
+        if (!child.leaf) {
+            child.children[0] = sibling.children[sibling.numKeys];
+        }
+
+        node.keys[idx - 1] = sibling.keys[sibling.numKeys - 1];
+        child.numKeys++;
+        sibling.numKeys--;
+    }
 
 
 
-//    private void merge(BtreeNode node, int idx) {
-//        BtreeNode child = node.children[idx];
-//        BtreeNode sibling = node.children[idx + 1];
-//
-//        child.keys[t - 1] = node.keys[idx];
-//
-//        for (int i = 0; i < sibling.numKeys; i++) {
-//            child.keys[i + t] = sibling.keys[i];
-//        }
-//
-//        if (!child.leaf) {
-//            for (int i = 0; i <= sibling.numKeys; i++) {
-//                child.children[i + t] = sibling.children[i];
-//            }
-//        }
-//
-//        for (int i = idx + 1; i < node.numKeys; i++) {
-//            node.keys[i - 1] = node.keys[i];
-//        }
-//
-//        for (int i = idx + 1; i <= node.numKeys; i++) {
-//            node.children[i - 1] = node.children[i];
-//        }
-//
-//        child.numKeys += sibling.numKeys + 1;
-//        node.numKeys--;
-//
-//        if (node.numKeys == 0 && node == root) {
-//            root = child;
-//        }
-//    }
-//
+    // ignore
+    private void borrowFromNext(BtreeNode node, int idx) {
+        BtreeNode child = node.children[idx];
+        BtreeNode sibling = node.children[idx + 1];
+
+        child.keys[child.numKeys] = node.keys[idx];
+
+        if (!child.leaf) {
+            child.children[child.numKeys + 1] = sibling.children[0];
+        }
+
+        node.keys[idx] = sibling.keys[0];
+
+        for (int i = 1; i < sibling.numKeys; i++) {
+            sibling.keys[i - 1] = sibling.keys[i];
+        }
+
+        if (!sibling.leaf) {
+            for (int i = 1; i <= sibling.numKeys; i++) {
+                sibling.children[i - 1] = sibling.children[i];
+            }
+        }
+
+        child.numKeys++;
+        sibling.numKeys--;
+    }
 
 
 
-//    private void removeFromLeaf(BtreeNode node, int idx) {
-//        for (int i = idx; i < node.numKeys - 1; i++) {
-//            node.keys[i] = node.keys[i + 1];
-//        }
-//        node.numKeys--;
-//    }
+    // ignore
+    private void merge(BtreeNode node, int idx) {
+        BtreeNode child = node.children[idx];
+        BtreeNode sibling = node.children[idx + 1];
+
+        child.keys[t - 1] = node.keys[idx];
+
+        for (int i = 0; i < sibling.numKeys; i++) {
+            child.keys[i + t] = sibling.keys[i];
+        }
+
+        if (!child.leaf) {
+            for (int i = 0; i <= sibling.numKeys; i++) {
+                child.children[i + t] = sibling.children[i];
+            }
+        }
+
+        for (int i = idx + 1; i < node.numKeys; i++) {
+            node.keys[i - 1] = node.keys[i];
+        }
+
+        for (int i = idx + 1; i <= node.numKeys; i++) {
+            node.children[i - 1] = node.children[i];
+        }
+
+        child.numKeys += sibling.numKeys + 1;
+        node.numKeys--;
+
+        if (node.numKeys == 0 && node == root) {
+            root = child;
+        }
+    }
 
 
 
-//    private void removeFromInternal(BtreeNode node, int idx) {
-//        int key = node.keys[idx];
-//        if (node.children[idx].numKeys >= t) {
-//            int pred = getPredecessor(node, idx);
-//            node.keys[idx] = pred;
-//            deleteRec(node.children[idx], pred);
-//        } else if (node.children[idx + 1].numKeys >= t) {
-//            int succ = getSuccessor(node, idx);
-//            node.keys[idx] = succ;
-//            deleteRec(node.children[idx + 1], succ);
-//        } else {
-//            merge(node, idx);
-//            deleteRec(node.children[idx], key);
-//        }
-//    }
+
+    // ignore
+    private void removeFromLeaf(BtreeNode node, int idx) {
+        for (int i = idx; i < node.numKeys - 1; i++) {
+            node.keys[i] = node.keys[i + 1];
+        }
+        node.numKeys--;
+    }
 
 
-//    private int getPredecessor(BtreeNode node, int idx) {
-//        BtreeNode cur = node.children[idx];
-//        while (!cur.leaf) {
-//            cur = cur.children[cur.numKeys];
-//        }
-//        return cur.keys[cur.numKeys - 1];
-//    }
+    // ignore
 
-//    private int getSuccessor(BtreeNode node, int idx) {
-//        BtreeNode cur = node.children[idx + 1];
-//        while (!cur.leaf) {
-//            cur = cur.children[0];
-//        }
-//        return cur.keys[0];
-//    }
+    private void removeFromInternal(BtreeNode node, int idx) {
+        int key = node.keys[idx];
+        if (node.children[idx].numKeys >= t) {
+            int pred = getPredecessor(node, idx);
+            node.keys[idx] = pred;
+            deleteRec(node.children[idx], pred);
+        } else if (node.children[idx + 1].numKeys >= t) {
+            int succ = getSuccessor(node, idx);
+            node.keys[idx] = succ;
+            deleteRec(node.children[idx + 1], succ);
+        } else {
+            merge(node, idx);
+            deleteRec(node.children[idx], key);
+        }
+    }
+
+    //ignore
+
+    private int getPredecessor(BtreeNode node, int idx) {
+        BtreeNode cur = node.children[idx];
+        while (!cur.leaf) {
+            cur = cur.children[cur.numKeys];
+        }
+        return cur.keys[cur.numKeys - 1];
+    }
+
+    // ignore
+    private int getSuccessor(BtreeNode node, int idx) {
+        BtreeNode cur = node.children[idx + 1];
+        while (!cur.leaf) {
+            cur = cur.children[0];
+        }
+        return cur.keys[0];
+    }
 
 
     // In-order traversal (Left, Root, Right)
@@ -358,13 +368,14 @@ class Btree{
         searchKey = 15;
         System.out.println("Searching for " + searchKey + ": " + (tree.search(searchKey) != null));
 
-//        System.out.println("\nDeleting 6...");
-//        tree.delete(6);
-//        tree.inOrder();
-//
-//        System.out.println("\nDeleting 13 (not present)...");
-//        tree.delete(13);
-//        tree.inOrder();
+        // ignore deleting
+        System.out.println("\nDeleting 6...");
+        tree.delete(6);
+        tree.inOrder();
+
+        System.out.println("\nDeleting 13 (not present)...");
+        tree.delete(13);
+        tree.inOrder();
 
         // talk about implementing deleting in next class
 
