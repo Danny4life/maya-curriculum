@@ -1,4 +1,4 @@
-package selahhtin.variableDemo.classActivity4;
+package selahhtin.week1Fundamentals.variableDemo.classActivity4;
 
 import java.util.Scanner;
 

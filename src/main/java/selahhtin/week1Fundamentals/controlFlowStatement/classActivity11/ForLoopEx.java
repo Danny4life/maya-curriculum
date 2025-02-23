@@ -1,4 +1,4 @@
-package selahhtin.controlFlowStatement.classActivity11;
+package selahhtin.week1Fundamentals.controlFlowStatement.classActivity11;
 
 public class ForLoopEx {
 

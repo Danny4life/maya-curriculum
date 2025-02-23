@@ -1,4 +1,4 @@
-package selahhtin.controlFlowStatement.classActivity7;
+package selahhtin.week1Fundamentals.controlFlowStatement.classActivity7;
 
 public class CityNames {
 

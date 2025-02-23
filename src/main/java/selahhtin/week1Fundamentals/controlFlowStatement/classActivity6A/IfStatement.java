@@ -1,4 +1,4 @@
-package selahhtin.controlFlowStatement.classActivity6A;
+package selahhtin.week1Fundamentals.controlFlowStatement.classActivity6A;
 
 public class IfStatement {
 

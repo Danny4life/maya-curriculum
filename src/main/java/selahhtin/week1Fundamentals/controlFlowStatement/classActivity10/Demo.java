@@ -1,4 +1,4 @@
-package selahhtin.controlFlowStatement.classActivity10;
+package selahhtin.week1Fundamentals.controlFlowStatement.classActivity10;
 
 public class Demo {
 

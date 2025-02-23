@@ -1,4 +1,4 @@
-package selahhtin.classExercise1A;
+package selahhtin.week1Fundamentals.classActivity2;
 
 public class TernaryOperator {
     public static void main(String[] args) {

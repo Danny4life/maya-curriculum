@@ -1,4 +1,4 @@
-package selahhtin.controlFlowStatement.classActivity8;
+package selahhtin.week1Fundamentals.controlFlowStatement.classActivity8;
 
 public class SwitchStatement {
 
