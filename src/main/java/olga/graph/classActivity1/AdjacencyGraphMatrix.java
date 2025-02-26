@@ -1,11 +1,11 @@
 package olga.graph.classActivity1;
 
-public class GraphMatrix {
+public class AdjacencyGraphMatrix {
     private int[][] adjMatrix; // 2D array to store the graph
     private int vertices; // Number of vertices in the graph
 
 
-    public GraphMatrix(int size) {
+    public AdjacencyGraphMatrix(int size) {
         this.vertices = size;
         adjMatrix = new int[size][size]; // Initialize matrix with 0s
     }
@@ -25,7 +25,7 @@ public class GraphMatrix {
     }
 
     public static void main(String[] args) {
-        GraphMatrix graph = new GraphMatrix(4);
+        AdjacencyGraphMatrix graph = new AdjacencyGraphMatrix(4);
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
         graph.addEdge(1, 3);
