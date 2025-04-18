@@ -1,4 +1,4 @@
-package Sriza.designPattern.classActivity2.eagerLoadingEx;
+package Sriza.designPattern.classActivity2Singleton.eagerLoadingEx;
 
 public class EagerLoadingSingleton {
 

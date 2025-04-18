@@ -1,4 +1,4 @@
-package Sriza.designPattern.classActivity2.lazyLoadedEx;
+package Sriza.designPattern.classActivity2Singleton.lazyLoadedEx;
 
 public class LazySingleton {
     // Step 1: Declare the instance, but do NOT initialize it
@@ -24,9 +24,9 @@ public class LazySingleton {
     public static void main(String[] args) {
         System.out.println("🔄 Main method started...");
         // Instance is NOT created yet, only created when getInstance() is called
-        //LazySingleton singleton = LazySingleton.getInstance();
-
-       // singleton.showMessage();
+//        LazySingleton singleton = LazySingleton.getInstance();
+//
+//        singleton.showMessage();
 
 
         /**

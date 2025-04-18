@@ -1,4 +1,4 @@
-package Sriza.designPattern.classActivity2;
+package olga.designPatterns.creationalDesignPattern.singleton;
 
 public class Singleton {
     // Step 1: Private static instance of the class

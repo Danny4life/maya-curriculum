@@ -1,4 +1,4 @@
-package Sriza.designPattern.classActivity2;
+package Sriza.designPattern.classActivity2Singleton;
 
 public class SingletonExample {
     public static void main(String[] args) {
