@@ -25,9 +25,11 @@ public class EagerLoadingSingleton {
             // The instance should already be created even before calling getInstance()
 
         // call this next
-//            EagerLoadingSingleton singleton = EagerLoadingSingleton.getInstance();
+ //           EagerLoadingSingleton singleton = EagerLoadingSingleton.getInstance();
 //
-//            singleton.showMessage();
+//           singleton.showMessage();
+
+
 
 
         /**
