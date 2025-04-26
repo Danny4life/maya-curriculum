@@ -1,4 +1,4 @@
-package olga.designPatterns.builderPattern.classActivity2;
+package olga.designPatterns.creationalDesignPattern.builderPattern.classActivity2;
 
 public class Computer {
 
