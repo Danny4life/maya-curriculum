@@ -31,6 +31,7 @@ public class Main {
 //        scanner.close();
 
 
+        // Here the client knows the exact class name such as car, bike, truck
         Car car = new Car();         // Direct instantiation
         car.start();
 

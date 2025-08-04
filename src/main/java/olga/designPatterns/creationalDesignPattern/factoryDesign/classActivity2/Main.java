@@ -19,6 +19,8 @@ public class Main {
 //
 //        scanner.close();
 
+
+        // here the client does not know the exact class name
         Vehicle car = VehicleFactory.getVehicle("car");
         car.start();
 
@@ -31,6 +33,13 @@ public class Main {
         truck.start();
     }
 }
+
+// the next question will now be how can this pattern relate to the diagram you shared
+/**
+ * To apply the Factory Pattern to your example (which has classes like Person, Applicant, Tenant, Landlord, etc.),
+ * we need to delegate the creation of specific Person subclasses (Applicant, Tenant, Landlord) to a factory method or factory class.
+ * go to the tenant project
+ */
 
 /**
  * 🎯 Loose Coupling: Main class only knows about the Vehicle interface.
