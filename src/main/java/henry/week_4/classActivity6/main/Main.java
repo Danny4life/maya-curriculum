@@ -11,6 +11,8 @@ public class Main {
 
         Map<String, Book> bookMap = new HashMap<>();
 
+        Map<Integer, Boolean> map = new HashMap<>();
+
         Book book1 = new Book(1, "Thing fall apart", "Chinua Achebe", 20);
         Book book2 = new Book(2, "Animal Farm", "Geroge Orwell", 30);
         Book book3 = new Book(3, "Romeo and Juliet", "William Shakespear", 22);
