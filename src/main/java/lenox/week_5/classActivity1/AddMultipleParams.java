@@ -5,6 +5,8 @@ public class AddMultipleParams {
 
 
         Addable add = (n1, n2) -> n1 + n2;
+
+       // Addable add = Integer::sum;
         System.out.println(add.add(10, 10));
     }
 }

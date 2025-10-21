@@ -1,17 +1,21 @@
 public class WorkDays {
 
+    //int num = 200936278123; // This is primitive -- it can only store small collection of data
+
+    Long num2 = 200936278123L; // This is non - primitive -- it can store large collection of data
+
     public static void main(String[] args) {
 
-        int day = 6;
-        boolean holiday = true;
+        int num1 = 5;
+        int num2 = 2;
 
-        if(holiday){
-            System.out.println("Wohoo, no work");
-        } if (day == 6 || day == 7) {
-            System.out.println("Is the weekend");
-            
-        }else {
-            System.out.println("Wake up at 7.00");
-        }
+        System.out.println( (double) num1/num2);
+
+        double a = 9.2;
+        System.out.println("Before casting " + a);
+
+        int b = (int) a;
+
+        System.out.println("After casting " + b);
     }
 }
