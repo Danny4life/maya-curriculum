@@ -1,7 +1,7 @@
 package lenox.week_2.classActivity2;
 
 // SUPER CLASS
-public class Animal {
+public abstract class Animal {
 
 
     // D.R.Y -- Don't Repeat Yourself

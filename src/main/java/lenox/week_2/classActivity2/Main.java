@@ -9,6 +9,6 @@ public class Main {
         l1.color = "RED";
 
         Tiger t1 = new Tiger();
-        t1.color = "PURPLE";
+      //  t1.color = "PURPLE";
     }
 }
